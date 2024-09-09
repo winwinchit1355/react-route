@@ -5,6 +5,7 @@ import About from './components/pages/About';
 import Nav from './components/utils/Nav';
 import './App.css';
 import Profile from './components/pages/Profile';
+import FallBack from './components/utils/FallBack';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About  />} />
           <Route path='/profile' element={<Profile  />} />
+          <Route path='*' element={<FallBack />} />
         </Routes>
     </div>
   )
