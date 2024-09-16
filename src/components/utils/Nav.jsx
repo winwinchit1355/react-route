@@ -14,6 +14,7 @@ export default function Nav() {
     <div>
         <NavLink to="/" style={isActiveStyle}>Home</NavLink>
         <NavLink to="/about" style={isActiveStyle}>About</NavLink>
+        <NavLink to="/category" style={isActiveStyle}>Category</NavLink>
     </div>
   )
 }
