@@ -10,11 +10,15 @@ import Category from './components/pages/Cats/Category';
 import { Categories } from './components/pages/Cats/Categories';
 import CreateCategory from './components/pages/Cats/CreateCategory';
 import EditCategory from './components/pages/Cats/EditCategory';
+import RouteGuard from './components/utils/RouteGuard';
+import LoginContextProvider from './components/utils/LoginContext';
+import Login from './components/pages/Login';
 const LazyAbout = React.lazy(() => import('./components/pages/About'));
 
 export default function App() {
   return (
     <div>
+      <LoginContextProvider>
       <Nav />
         <Routes>
           <Route path='/' element={<Home />} />
@@ -24,7 +28,8 @@ export default function App() {
             </React.Suspense>
           } />
           <Route path='/profile' element={<Profile  />} />
-          <Route path='/category' element={<Category />}>
+          <Route path='/login' element={<Login  />} />
+          <Route path='/category' element={<RouteGuard><Category /></RouteGuard>}>
             <Route index element={<Categories />} />
             <Route path='categories' element={<Categories />} />
             <Route path='create' element={<CreateCategory />} />
@@ -32,6 +37,7 @@ export default function App() {
           </Route>
           <Route path='*' element={<FallBack />} />
         </Routes>
+        </LoginContextProvider>
     </div>
   )
 }
