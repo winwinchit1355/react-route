@@ -23,7 +23,7 @@ export default function App() {
             <Route index element={<Categories />} />
             <Route path='categories' element={<Categories />} />
             <Route path='create' element={<CreateCategory />} />
-            <Route path='edit' element={<EditCategory />} />
+            <Route path='edit/:id' element={<EditCategory />} />
           </Route>
           <Route path='*' element={<FallBack />} />
         </Routes>

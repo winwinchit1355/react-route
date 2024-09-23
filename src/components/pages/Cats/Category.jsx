@@ -7,7 +7,7 @@ const Category = () => {
         <ul>
             <li><Link to='categories'>All Categories</Link></li>
             <li><Link to='create'>Create</Link></li>
-            <li><Link to='Edit'>Edit</Link></li>
+            <li><Link to='edit/3'>Edit</Link></li>
         </ul>
         <Outlet />
     </div>
