@@ -1,7 +1,7 @@
 import React from 'react';
 import {Routes,Route} from 'react-router-dom';
 import Home from './components/pages/Home';
-import About from './components/pages/About';
+// import About from './components/pages/About';
 import Nav from './components/utils/Nav';
 import './App.css';
 import Profile from './components/pages/Profile';
@@ -10,6 +10,7 @@ import Category from './components/pages/Cats/Category';
 import { Categories } from './components/pages/Cats/Categories';
 import CreateCategory from './components/pages/Cats/CreateCategory';
 import EditCategory from './components/pages/Cats/EditCategory';
+const LazyAbout = React.lazy(() => import('./components/pages/About'));
 
 export default function App() {
   return (
@@ -17,7 +18,11 @@ export default function App() {
       <Nav />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About  />} />
+          <Route path='/about' element={
+            <React.Suspense fallback="Please wait...">
+              <LazyAbout  />
+            </React.Suspense>
+          } />
           <Route path='/profile' element={<Profile  />} />
           <Route path='/category' element={<Category />}>
             <Route index element={<Categories />} />
